@@ -1,0 +1,38 @@
+<!--
+<table border="3">
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>address</th>
+      <th>image</th>
+      <th>status</th>
+    </tr>
+    <tr *ngFor="let i of listResidences">
+      <th>{{i.id}}</th>
+      <th>{{i.name | uppercase}}</th>
+      <th>{{i.address}}</th>
+      <th><img [src]="i.image" alt="img" width="50" height="50">{{i.image}}</th>
+      <th>{{i.status}}</th>
+    </tr>
+  </table>
+<input type="text" [(ngModel)]="search">
+<div *ngFor="let i of listResidences">
+    <div *ngIf="search==i.name">
+        <ul>
+            <li>{{i.id}}</li>
+        </ul>
+    </div>
+</div>
+-->
+<div class="row">
+<div *ngFor="let i of listResidences" class="card m-3" style="width: 18rem;padding: 10px;;">
+    <img [src]="i.image" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title">{{i.name | uppercase}}</h5>
+      <h5 class="card-title">{{i.status}}</h5>
+      <p class="card-text">{{i.address}}</p>
+      <a href="#" class="btn btn-primary" (click)="show(i)">Show Location</a>
+      <button class="btn btn-success" style="padding: 5px;" (click)="listfavoris(i)">{{isfavoris(i)  ? "unlike"  :  "like" }}</button>
+    </div>
+  </div>
+</div>
